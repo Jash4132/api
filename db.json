@@ -1,0 +1,30 @@
+{
+  "users": [
+    {
+      "id": "05df",
+      "name": "jash",
+      "email": "jash",
+      "password": "jash"
+    },
+    {
+      "id": "89f3",
+      "name": "den",
+      "email": "den",
+      "password": "den"
+    }
+  ],
+  "appointments": [],
+  "sessions": [
+    {
+      "id": "c917",
+      "userId": "05df",
+      "email": "jash"
+    },
+    {
+      "id": "dd44",
+      "userId": "05df",
+      "email": "jash"
+    }
+  ],
+  "messages": []
+}

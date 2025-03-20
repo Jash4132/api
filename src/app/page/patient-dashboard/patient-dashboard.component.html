@@ -1,0 +1,38 @@
+<!-- Input Form Section -->
+<div *ngIf="!appointments">
+  <h2>Enter your details to check your appointment status</h2>
+  <form (ngSubmit)="fetchAppointments()">
+    <label for="name">Name:</label>
+    <input id="name" type="text" [(ngModel)]="name" name="name" placeholder="Enter Name" required />
+
+    <label for="phone">Phone Number:</label>
+    <input id="phone" type="text" [(ngModel)]="phone" name="phone" placeholder="Enter Phone Number" required pattern="^\d{10}$" />
+
+    <button type="submit">Check Status</button>
+  </form>
+</div>
+
+<!-- Show appointment details if found -->
+<div *ngIf="appointments">
+  <h2>Your Appointments</h2>
+  <table>
+    <tr>
+      <th>Date</th>
+      <th>Problem</th>
+      <th>Consultation Date</th>
+      <th>Status</th>
+    </tr>
+    <tr *ngFor="let appointment of appointments">
+      <td>{{ appointment.date }}</td>
+      <td>{{ appointment.problem }}</td>
+      <td>{{ appointment.consultationDate || 'Pending' }}</td>
+      <td>
+        <span *ngIf="appointment.consultationDate">Accepted</span>
+        <span *ngIf="!appointment.consultationDate">Pending</span>
+      </td>
+    </tr>
+  </table>
+  <li *ngFor="let app of appointments">
+  <button (click)="cancelAppointment(app.id)">Cancel Appointment</button>
+</li>
+</div>

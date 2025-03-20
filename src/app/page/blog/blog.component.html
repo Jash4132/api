@@ -1,0 +1,9 @@
+<div class="blog-container">
+  <h2>Latest Blog Posts</h2>
+
+  <div *ngFor="let blog of blogs" class="blog-post">
+    <h3>{{ blog.title }}</h3>
+    <p><strong>Date:</strong> {{ blog.date }}</p>
+    <p>{{ blog.content }}</p>
+  </div>
+</div>

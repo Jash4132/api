@@ -1,0 +1,17 @@
+<nav class="navbar">
+  <ul class="nav-links">
+    <li><a routerLink="/dashboard">Dashboard</a></li>
+    <li><a routerLink="/book-appointment">Book an Appointment</a></li>
+    <li><a routerLink="/blog">Blog</a></li>
+    <li><a routerLink="/contact-us">Contact Us</a></li>
+    <li><a routerLink="/about-us">About Us</a></li>
+    <!-- <li><button (click)="logout()">Logout</button></li> -->
+    <a *ngIf="!isDoctorLoggedIn()" routerLink="/doctor-login">Doctor Login</a>
+  <a *ngIf="isDoctorLoggedIn()" routerLink="/doctor-dashboard">Doctor Dashboard</a>
+  <!-- <button *ngIf="isDoctorLoggedIn()" (click)="doctorLogout()">Logout Doctor</button> -->
+  <li><a routerLink="/patient-dashboard">Patient Dashboard</a></li>
+  <div class="nav-right">
+    <button class="logout-btn" (click)="logout()">Logout</button>
+  </div>
+  </ul>
+</nav>

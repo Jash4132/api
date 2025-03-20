@@ -1,0 +1,18 @@
+<h2>Register</h2>
+<form (ngSubmit)="registerUser()" #registerForm="ngForm">
+  <div>
+    <label>Name:</label>
+    <input type="text" name="name" [(ngModel)]="user.name" required />
+  </div>
+  <div>
+    <label>Email:</label>
+    <input type="email" name="email" [(ngModel)]="user.email" required />
+  </div>
+  <div>
+    <label>Password:</label>
+    <input type="password" name="password" [(ngModel)]="user.password" required />
+  </div>
+  <button type="submit">Register</button>
+</form>
+<p *ngIf="message">{{ message }}</p>
+<p>Already registered? <a routerLink="/login">Login here</a></p>

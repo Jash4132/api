@@ -1,0 +1,33 @@
+<h1>Book an Appointment</h1>
+<form (ngSubmit)="submitAppointment()">
+  <input type="text" [(ngModel)]="appointment.name" name="name" placeholder="Full Name" required />
+  <input type="email" [(ngModel)]="appointment.email" name="email" placeholder="Email" required />
+  <input type="tel" [(ngModel)]="appointment.phone" name="phone" placeholder="Phone Number" required />
+  <input type="date" [(ngModel)]="appointment.date" name="date" required />
+
+  <select [(ngModel)]="appointment.problem" name="problem" required>
+    <option value="" disabled selected>Select a Problem</option>
+    <option value="Cold">Cold</option>
+    <option value="Flu">Flu</option>
+    <option value="Fever">Fever</option>
+    <option value="Cough">Cough</option>
+    <option value="Headache">Headache</option>
+    <option value="Stomach Pain">Stomach Pain</option>
+    <option value="Skin Infection">Skin Infection</option>
+    <option value="Diabetes">Diabetes</option>
+    <option value="Heart Issue">Heart Issue</option>
+    <option value="Other">Other</option>
+  </select>
+
+  <input
+    type="text"
+    *ngIf="appointment.problem === 'Other'"
+    [(ngModel)]="appointment.otherProblem"
+    name="otherProblem"
+    placeholder="Describe your problem"
+  />
+
+  <button type="submit">Book Appointment</button>
+</form>
+
+<p *ngIf="message">{{ message }}</p>

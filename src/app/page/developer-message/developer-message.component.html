@@ -1,0 +1,19 @@
+<div class="developer-messages">
+  <h1>Developer Messages</h1>
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Message</th>
+      <th>Action</th>
+    </tr>
+    <tr *ngFor="let msg of messages">
+      <td>{{ msg.name }}</td>
+      <td>{{ msg.email }}</td>
+      <td>{{ msg.message }}</td>
+      <td>
+        <button (click)="deleteMessage(msg.id)">Delete</button>
+      </td>
+    </tr>
+  </table>
+</div>

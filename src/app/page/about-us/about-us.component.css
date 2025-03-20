@@ -1,0 +1,49 @@
+.about-container {
+  max-width: 800px;
+  margin: 50px auto;
+  padding: 20px;
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.about-container h2 {
+  font-size: 28px;
+  color: #333;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+}
+
+.about-container h3 {
+  font-size: 22px;
+  color: #007bff;
+  margin-top: 20px;
+}
+
+.about-container p {
+  font-size: 16px;
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+.about-container ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.about-container li {
+  font-size: 16px;
+  color: #333;
+  background: #f8f9fa;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.contact-info {
+  margin-top: 20px;
+  font-weight: bold;
+}

@@ -1,3 +1,51 @@
 <app-navbar></app-navbar>
-<h2>Welcome to Dashboard</h2>
-<p>You are now logged in as {{ session?.email }}</p>
+<!-- <h2>Welcome to Dashboard</h2>
+<p>You are now logged in as {{ session?.email }}</p> -->
+<div class="dashboard-container">
+  <h1>Welcome {{ session?.email }} to Dr Pro</h1>
+
+  <!-- Hero Section -->
+  <div class="hero-section">
+    <h2>Your Health, Our Priority</h2>
+    <p>Book appointments with expert doctors and get the best medical consultation at your convenience.</p>
+    <a routerLink="/book-appointment" class="btn-primary">Book an Appointment</a>
+  </div>
+
+  <!-- Services Section -->
+  <div class="services">
+    <h2>Our Services</h2>
+    <div class="service-card">
+      <img src="https://img.freepik.com/premium-photo/health-medical-consultation-application-online-medical-consultation-with-doctor-medical-workers-healthcare-modern-technology-concept-patient-consulting-doctor-using-mobile-app_776674-961532.jpg" alt="Online Consultation">
+      <h3>Online Consultation</h3>
+      <p>Get expert medical advice from certified doctors from the comfort of your home.</p>
+    </div>
+    <div class="service-card">
+      <img src="https://st3.depositphotos.com/1000816/17341/i/450/depositphotos_173413266-stock-photo-closeup-successful-doctors-of-his.jpg" alt="Specialist Care">
+      <h3>Specialist Care</h3>
+      <p>Consult top specialists in various fields, including cardiology, dermatology, and more.</p>
+    </div>
+    <div class="service-card">
+      <img src="https://media.istockphoto.com/id/1338373342/photo/booking-meeting-calendar-appointment.jpg?s=612x612&w=0&k=20&c=3nre37tgDeBnGFU4b0Rj9P-TPay3EGS9RN-_ZzoyVvs=" alt="Appointment Management">
+      <h3>Easy Appointment Management</h3>
+      <p>View, accept, or cancel your appointments with just a few clicks.</p>
+    </div>
+  </div>
+
+  <!-- Why Choose Us Section -->
+  <div class="why-choose-us">
+    <h2>Why Choose Dr Pro?</h2>
+    <ul>
+      <li>✔ Trusted by thousands of patients and doctors</li>
+      <li>✔ Secure and easy-to-use appointment booking system</li>
+      <li>✔ 24/7 online medical consultation available</li>
+      <li>✔ Verified doctors with years of experience</li>
+    </ul>
+  </div>
+
+  <!-- Call to Action -->
+  <div class="cta-section">
+    <h2>Need a Doctor? We Are Here to Help!</h2>
+    <p>Book an appointment now and get quality healthcare at your convenience.</p>
+    <a routerLink="/book-appointment" class="btn-primary">Book Now</a>
+  </div>
+</div>

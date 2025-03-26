@@ -1,0 +1,66 @@
+.dashboard-container {
+  text-align: center;
+  padding: 20px;
+}
+
+.hero-section {
+  background: linear-gradient(to right, #4facfe, #4dc2c8);
+  color: white;
+  padding: 40px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.hero-section .btn-primary {
+  background: white;
+  color: #007bff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.services {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.service-card {
+  width: 30%;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+.service-card img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.why-choose-us {
+  margin-top: 30px;
+}
+
+.why-choose-us ul {
+  list-style: none;
+  padding: 0;
+}
+
+.why-choose-us li {
+  margin: 10px 0;
+  font-size: 18px;
+}
+
+.cta-section {
+  margin-top: 40px;
+  background: #f8f9fa;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.btn-primary:hover {
+  background: #0056b3;
+  color: white;
+}

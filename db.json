@@ -1,28 +1,37 @@
 {
   "users": [
     {
-      "id": "05df",
-      "name": "jash",
+      "id": "4195",
+      "name": "Jash",
       "email": "jash",
-      "password": "jash"
-    },
-    {
-      "id": "89f3",
-      "name": "den",
-      "email": "den",
-      "password": "den"
+      "password": "jash123"
     }
   ],
-  "appointments": [],
-  "sessions": [
+  "appointments": [
     {
-      "id": "c917",
-      "userId": "05df",
-      "email": "jash"
+      "id": "2c06",
+      "name": "Jash",
+      "email": "jash",
+      "phone": "9106477650",
+      "date": "3212-04-23",
+      "problem": "Stomach Pain",
+      "otherProblem": "",
+      "consultationDate": "2025-03-27"
     },
     {
-      "id": "dd44",
-      "userId": "05df",
+      "id": "d2b8",
+      "name": "jen",
+      "email": "jen",
+      "phone": "9106477650",
+      "date": "45676-03-12",
+      "problem": "Cough",
+      "otherProblem": ""
+    }
+  ],
+  "sessions": [
+    {
+      "id": "4703",
+      "userId": "4195",
       "email": "jash"
     }
   ],

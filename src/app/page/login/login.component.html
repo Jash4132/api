@@ -12,4 +12,5 @@
 </form>
 
 <p *ngIf="message">{{ message }}</p>
-<p>Not registered? <a routerLink="/register">Register here</a></p>
+<p *ngIf="errorMessage" style="color: red;">{{ errorMessage }}</p>
+<p>Not registered? <a routerLink="/register" style="color:rgb(72, 136, 162)">Register here</a></p>

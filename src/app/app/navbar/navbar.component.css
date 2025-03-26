@@ -1,48 +1,42 @@
+/* Navbar container */
 .navbar {
   background-color: #007bff;
-  padding: 10px;
+  padding: 10px 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap; /* Helps with responsiveness */
 }
 
-.navbar ul {
-  list-style-type: none;
+/* Navigation links container */
+.nav-links {
+  list-style: none;
   padding: 0;
   margin: 0;
   display: flex;
+  gap: 20px; /* Adds space between list items */
+  flex-wrap: wrap; /* Allows items to wrap if screen is small */
 }
 
-.navbar li {
-  margin-right: 40px;
+/* Navbar items (li) */
+.nav-links li {
+  text-align: center;
 }
 
-.navbar a {
+.nav-links a {
+  color: white;
   text-decoration: none;
-  color: white;
+  font-size: 16px;
   font-weight: bold;
-}
-
-.navbar button {
-  background-color: red;
-  color: white;
-  border: none;
   padding: 8px 12px;
-  cursor: pointer;
-  border-radius: 5px;
+  display: inline-block;
 }
 
-.navbar button:hover {
-  background-color: darkred;
-}
-.navbar{
-  display: flex;
-  justify-content: space-between;
-}
-.nav-right {
-  margin-left: auto;
+.nav-links a:hover {
+  text-decoration: underline;
 }
 
+/* Button styles for logout */
 .logout-btn {
   background: white;
   color: #007bff;
@@ -59,26 +53,34 @@
   background: #f8f9fa;
   color: #0056b3;
 }
-.nav-links {
-  list-style: none;
-  display: flex;
-  justify-content: space-between; /* Distributes space evenly */
-  align-items: center;
+
+/* Align logout button to the right */
+.nav-right {
+  margin-left: auto;
 }
 
-.nav-links li {
-  text-align: center;
-}
-
-.nav-links a {
-  color: white;
+/* Styling for doctor-specific login links */
+.navbar a {
   text-decoration: none;
-  font-size: 16px;
+  color: white;
   font-weight: bold;
-  padding: 8px 12px;
-  display: inline-block;
 }
 
-.nav-links a:hover {
+/* Hover effect for links */
+.navbar a:hover {
   text-decoration: underline;
+}
+
+/* Flexbox alignment for smaller screens */
+@media screen and (max-width: 768px) {
+  .nav-links {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+
+  .nav-right {
+    margin-left: 0;
+    margin-top: 10px;
+  }
 }

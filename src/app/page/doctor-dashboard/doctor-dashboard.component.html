@@ -25,8 +25,7 @@
       </td>
     </tr>
   </table>
-  <button id="butt" *ngIf="isDoctorLoggedIn()" (click)="doctorLogout()">Logout Doctor</button>
-  <!-- Accept Appointment Dialog -->
+
   <div class="modal" *ngIf="selectedAppointment">
     <div class="modal-content">
       <h3>Select Consultation Date</h3>
@@ -35,4 +34,7 @@
       <button (click)="closeDialog()">Cancel</button>
     </div>
   </div>
+</div>
+<div>
+<button id="butt" *ngIf="isDoctorLoggedIn()" (click)="doctorLogout()">Logout Doctor</button>
 </div>

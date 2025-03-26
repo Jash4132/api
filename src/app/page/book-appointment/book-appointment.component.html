@@ -1,33 +1,47 @@
-<h1>Book an Appointment</h1>
-<form (ngSubmit)="submitAppointment()">
-  <input type="text" [(ngModel)]="appointment.name" name="name" placeholder="Full Name" required />
-  <input type="email" [(ngModel)]="appointment.email" name="email" placeholder="Email" required />
-  <input type="tel" [(ngModel)]="appointment.phone" name="phone" placeholder="Phone Number" required />
-  <input type="date" [(ngModel)]="appointment.date" name="date" required />
+<div class="container">
+  <h1>Book an Appointment</h1>
+  <form (ngSubmit)="submitAppointment()">
+    <label for="name" class="required-field">Full Name</label>
+    <input type="text" id="name" [(ngModel)]="appointment.name" name="name" placeholder="Enter your full name" required />
 
-  <select [(ngModel)]="appointment.problem" name="problem" required>
-    <option value="" disabled selected>Select a Problem</option>
-    <option value="Cold">Cold</option>
-    <option value="Flu">Flu</option>
-    <option value="Fever">Fever</option>
-    <option value="Cough">Cough</option>
-    <option value="Headache">Headache</option>
-    <option value="Stomach Pain">Stomach Pain</option>
-    <option value="Skin Infection">Skin Infection</option>
-    <option value="Diabetes">Diabetes</option>
-    <option value="Heart Issue">Heart Issue</option>
-    <option value="Other">Other</option>
-  </select>
+    <label for="email" class="required-field">Email Address</label>
+    <input type="email" id="email" [(ngModel)]="appointment.email" name="email" placeholder="Enter your email address" required />
 
-  <input
-    type="text"
-    *ngIf="appointment.problem === 'Other'"
-    [(ngModel)]="appointment.otherProblem"
-    name="otherProblem"
-    placeholder="Describe your problem"
-  />
+    <label for="phone" class="required-field">Phone Number</label>
+    <input type="tel" id="phone" [(ngModel)]="appointment.phone" name="phone" placeholder="Enter your phone number" required />
 
-  <button type="submit">Book Appointment</button>
-</form>
+    <label for="date" class="required-field">Appointment Date</label>
+    <input type="date" id="date" [(ngModel)]="appointment.date" name="date" required />
 
-<p *ngIf="message">{{ message }}</p>
+    <label for="problem" class="required-field">Medical Concern</label>
+    <select id="problem" [(ngModel)]="appointment.problem" name="problem" required>
+      <option value="" disabled selected>Select your medical concern</option>
+      <option value="Cold">Cold</option>
+      <option value="Flu">Flu</option>
+      <option value="Fever">Fever</option>
+      <option value="Cough">Cough</option>
+      <option value="Headache">Headache</option>
+      <option value="Stomach Pain">Stomach Pain</option>
+      <option value="Skin Infection">Skin Infection</option>
+      <option value="Diabetes">Diabetes</option>
+      <option value="Heart Issue">Heart Issue</option>
+      <option value="Other">Other</option>
+    </select>
+
+    <div *ngIf="appointment.problem === 'Other'">
+      <label for="otherProblem" class="required-field">Describe Your Concern</label>
+      <input
+        type="text"
+        id="otherProblem"
+        [(ngModel)]="appointment.otherProblem"
+        name="otherProblem"
+        placeholder="Please describe your medical concern"
+        required
+      />
+    </div>
+
+    <button type="submit">Book Appointment</button>
+  </form>
+
+  <div class="success-message" *ngIf="message">{{ message }}</div>
+</div>

@@ -16,6 +16,7 @@ import { BlogComponent } from './app/page/blog/blog.component';
 import { AboutUsComponent } from './app/page/about-us/about-us.component';
 import { ContactUsComponent } from './app/page/contact-us/contact-us.component';
 import { DeveloperMessageComponent } from './app/page/developer-message/developer-message.component';
+import { AuthGuard } from './app/services/auth.guard';
 
 bootstrapApplication(AppComponent, {
   providers: [
@@ -23,12 +24,12 @@ bootstrapApplication(AppComponent, {
     provideRouter([
       { path: 'register', component: RegisterComponent },
       { path: 'login', component: LoginComponent },
-      {path:'dashboard', component:DashboardComponent},
+      {path:'dashboard', component:DashboardComponent, canActivate: [AuthGuard]},
       {path:'navbar', component:NavbarComponent},
-      {path:'book-appointment', component:BookAppointmentComponent},
+      {path:'book-appointment', component:BookAppointmentComponent, canActivate: [AuthGuard]},
       {path:'doctor-login', component:DoctorLoginComponent},
-      {path:'doctor-dashboard', component:DoctorDashboardComponent},
-      {path:'patient-dashboard', component:PatientDashboardComponent},
+      {path:'doctor-dashboard', component:DoctorDashboardComponent, canActivate: [AuthGuard]},
+      {path:'patient-dashboard', component:PatientDashboardComponent, canActivate: [AuthGuard]},
       {path:'blog', component:BlogComponent},
       {path:'about-us', component:AboutUsComponent},
       {path:'contact-us',component:ContactUsComponent},

@@ -85,3 +85,19 @@ button:hover {
   position:absolute;
   padding: 10px 20px;
 }
+div #butt {
+  display: block;
+  margin: 0 auto;
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: white;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#butt:hover {
+  background-color: #45a049;
+}

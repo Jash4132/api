@@ -55,6 +55,6 @@ export class DoctorDashboardComponent implements OnInit {
   }
   doctorLogout() {
     sessionStorage.removeItem('doctorLoggedIn');
-    this.router.navigate(['/doctor-login']);
+    this.router.navigate(['/dashboard']);
   }
 }

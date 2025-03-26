@@ -2,34 +2,45 @@
 form {
   max-width: 400px;
   margin: 50px auto;
-  padding: 20px;
-  background: #ffffff;
-  border-radius: 10px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  padding: 25px;
+  background: #f8f9fa;
+  border-radius: 12px;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+  font-family: 'Arial', sans-serif;
 }
 
 /* Form heading */
 h2 {
   text-align: center;
-  color: #333;
+  color: #444;
+  font-size: 28px;
+  margin-bottom: 20px;
 }
 
 /* Label styling */
 label {
   font-weight: bold;
   display: block;
-  margin: 10px 0 5px;
+  margin: 12px 0 6px;
   color: #555;
+  font-size: 14px;
 }
 
 /* Input field styling */
 input {
   width: 100%;
-  padding: 10px;
-  margin-bottom: 15px;
+  padding: 12px;
+  margin-bottom: 20px;
   border: 1px solid #ccc;
-  border-radius: 5px;
+  border-radius: 6px;
   font-size: 16px;
+  transition: border 0.3s ease;
+}
+
+/* Focus state for input fields */
+input:focus {
+  border-color: #007bff;
+  outline: none;
 }
 
 /* Button styling */
@@ -37,21 +48,94 @@ button {
   width: 100%;
   background: #007bff;
   color: white;
-  padding: 10px;
+  padding: 12px;
   border: none;
-  border-radius: 5px;
+  border-radius: 6px;
   cursor: pointer;
   font-size: 16px;
   transition: 0.3s ease;
 }
 
+/* Button hover state */
 button:hover {
-  background: #6aa7e9;
+  background: #0056b3;
+  transform: translateY(-2px);
 }
 
-/* Success message */
+/* Button active state */
+button:active {
+  transform: translateY(0);
+  background: #004494;
+}
+
+/* Success and error messages */
 p {
   text-align: center;
-  color: rgb(94, 168, 94);
+  font-size: 16px;
+  margin-top: 15px;
+}
+
+p.success {
+  color: #28a745;
   font-weight: bold;
+}
+
+p.error {
+  color: #dc3545;
+  font-weight: bold;
+}
+
+/* Error message small text */
+small {
+  color: #dc3545;
+  font-size: 12px;
+  display: block;
+  margin-top: 5px;
+}
+
+/* Link styling */
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive for smaller screens */
+@media (max-width: 480px) {
+  form {
+    padding: 15px;
+  }
+
+  h2 {
+    font-size: 24px;
+  }
+
+  button {
+    font-size: 14px;
+  }
+}
+div {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+div label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #555;
+  font-size: 16px;
+}
+
+div select {
+  width: 107%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  background-color: #fff;
+  transition: border-color 0.3s ease;
 }

@@ -8,31 +8,46 @@ import { CommonModule } from '@angular/common';
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
-  imports:[FormsModule,CommonModule,RouterLink]
+  imports: [FormsModule, CommonModule, RouterLink]
 })
 export class LoginComponent {
   user = { email: '', password: '' };
   message = '';
+  errorMessage = '';
 
   constructor(private authService: AuthService, private router: Router) {}
 
   loginUser() {
-    this.authService.loginUser(this.user).subscribe((users) => {
-      if (users.length > 0) {
-        const user = users[0];
+    this.user.email = this.user.email.trim();
+    this.user.password = this.user.password.trim();
 
-        // Create a session and then navigate
-        this.authService.createSession(user).subscribe((session) => {
-          if (session) {
-            this.message = 'Login successful!';
-            setTimeout(() => {
-              this.router.navigate(['/dashboard']);
-            }, 1000);
-          }
-        });
-      } else {
-        this.message = 'Invalid credentials. Try again!';
+    if (!this.user.email || !this.user.password) {
+      this.errorMessage = 'Email and password are required!';
+      return;
+    }
+
+    this.authService.loginUser(this.user).subscribe(
+      (users) => {
+        if (users.length > 0) {
+          const user = users[0];
+
+          // Create a session
+          this.authService.createSession(user).subscribe((session) => {
+            if (session) {
+              this.message = 'Login successful!';
+              sessionStorage.setItem('loggedInUser', user.email); // Store user email in session
+              setTimeout(() => {
+                this.router.navigate(['/dashboard']);
+              }, 1000);
+            }
+          });
+        } else {
+          this.errorMessage = 'Invalid email or password!';
+        }
+      },
+      (error) => {
+        this.errorMessage = 'Error connecting to server. Please try again.';
       }
-    });
+    );
   }
 }

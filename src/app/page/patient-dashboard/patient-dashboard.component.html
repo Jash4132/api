@@ -27,8 +27,8 @@
       <td>{{ appointment.problem }}</td>
       <td>{{ appointment.consultationDate || 'Pending' }}</td>
       <td>
-        <span *ngIf="appointment.consultationDate">Accepted</span>
-        <span *ngIf="!appointment.consultationDate">Pending</span>
+        <span *ngIf="appointment.consultationDate" style="color: green;">Accepted</span>
+        <span *ngIf="!appointment.consultationDate " >Pending</span>
       </td>
     </tr>
   </table>

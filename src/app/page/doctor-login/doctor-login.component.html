@@ -1,13 +1,15 @@
 <div class="login-container">
-  <h2>Doctor Login</h2>
-  <form (ngSubmit)="doctorLogin()">
-    <div class="input-group">
-      <input type="email" [(ngModel)]="doctor.email" name="email" placeholder="Email" required />
-    </div>
-    <div class="input-group">
-      <input type="password" [(ngModel)]="doctor.password" name="password" placeholder="Password" required />
-    </div>
-    <button type="submit">Login</button>
-  </form>
-  <p *ngIf="errorMessage" class="error-message">{{ errorMessage }}</p>
+  <div class="login-card">
+    <h2>👨‍⚕️ Doctor Login</h2>
+    <form (ngSubmit)="doctorLogin()">
+      <div class="input-group">
+        <input type="email" [(ngModel)]="doctor.email" name="email" placeholder="Enter your Email" required />
+      </div>
+      <div class="input-group">
+        <input type="password" [(ngModel)]="doctor.password" name="password" placeholder="Enter your Password" required />
+      </div>
+      <button type="submit">🔐 Login</button>
+    </form>
+    <p *ngIf="errorMessage" class="error-message">{{ errorMessage }}</p>
+  </div>
 </div>

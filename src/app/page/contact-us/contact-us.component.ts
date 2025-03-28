@@ -15,6 +15,7 @@ export class ContactUsComponent {
   constructor(private http: HttpClient) {}
 
   submitForm() {
+    console.log(this.contact);
     if (this.contact.name && this.contact.email && this.contact.message) {
       this.http.post(this.apiUrl, this.contact).subscribe(() => {
         alert('Your message has been sent successfully!');

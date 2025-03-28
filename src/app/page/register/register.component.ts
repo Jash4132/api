@@ -14,6 +14,7 @@ export class RegisterComponent {
   user = { name: '', email: '', password: '' };
   message = '';
   errorMessage = '';
+  emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
   apiUrl = 'http://localhost:3000/users';
 
   constructor(private http: HttpClient, private router: Router) {}
@@ -25,6 +26,10 @@ export class RegisterComponent {
 
     if (!this.user.name || !this.user.email || !this.user.password) {
       this.errorMessage = 'All fields are required!';
+      return;
+    }
+    if(!this.emailRegex.test(this.user.email)){
+      this.errorMessage= 'Invalid Email adress Format'
       return;
     }
 

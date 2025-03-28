@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
+import { appointment } from '../../Interface/appointments';
 
 @Component({
   selector: 'app-doctor-dashboard',
@@ -27,7 +28,7 @@ export class DoctorDashboardComponent implements OnInit {
     });
   }
 
-  openAcceptDialog(appointment: any) {
+  openAcceptDialog(appointment: appointment) {
     this.selectedAppointment = appointment;
   }
 

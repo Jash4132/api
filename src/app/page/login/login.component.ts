@@ -3,6 +3,7 @@ import { AuthService } from '../../services/auth.service';
 import { Router, RouterLink } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { User } from '../../Interface/appointments';
 
 @Component({
   selector: 'app-login',
@@ -11,7 +12,7 @@ import { CommonModule } from '@angular/common';
   imports: [FormsModule, CommonModule, RouterLink]
 })
 export class LoginComponent {
-  user = { email: '', password: '' };
+  user = { email: '', password: '', role:'' };
   message = '';
   errorMessage = '';
 
@@ -20,33 +21,45 @@ export class LoginComponent {
   loginUser() {
     this.user.email = this.user.email.trim();
     this.user.password = this.user.password.trim();
+    this.user.role= this.user.role.trim();
 
-    if (!this.user.email || !this.user.password) {
-      this.errorMessage = 'Email and password are required!';
+    if (!this.user.email || !this.user.password || !this.user.role) {
+      this.errorMessage = 'Email, password and role are required!';
       return;
     }
 
     this.authService.loginUser(this.user).subscribe(
       (users) => {
-        if (users.length > 0) {
-          const user = users[0];
+        const user = users.find((u:User) => u.email === this.user.email && u.password === this.user.password);
+        if (user) {
+          const sessionData = {
+            userId: user.id,
+            email: user.email,
+            role: this.user.role
+          };
 
           // Create a session
-          this.authService.createSession(user).subscribe((session) => {
+          this.authService.createSession(sessionData).subscribe((session) => {
             if (session) {
               this.message = 'Login successful!';
-              sessionStorage.setItem('loggedInUser', user.email); // Store user email in session
+              sessionStorage.setItem('loggedInUser', user.email);
               setTimeout(() => {
-                this.router.navigate(['/dashboard']);
+                if (this.user.role === 'doctor') {
+                  this.router.navigate(['/doctor-login']);
+                } else {
+                  this.router.navigate(['/dashboard']);
+                }
               }, 1000);
             }
           });
         } else {
           this.errorMessage = 'Invalid email or password!';
+          setTimeout(() => this.errorMessage = '', 3000);
         }
       },
       (error) => {
         this.errorMessage = 'Error connecting to server. Please try again.';
+        setTimeout(() => this.errorMessage = '', 3000);
       }
     );
   }

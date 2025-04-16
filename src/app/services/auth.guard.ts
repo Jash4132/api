@@ -8,11 +8,11 @@ export class AuthGuard {
   constructor(private router: Router) {}
 
   canActivate: CanActivateFn = () => {
-    const isLoggedIn = !!sessionStorage.getItem('loggedInUser'); // Check if user is logged in
+    const isLoggedIn = !!sessionStorage.getItem('loggedInUser');
 
     if (!isLoggedIn) {
       alert('Access denied! Please log in.');
-      this.router.navigate(['/login']); // Redirect to login if not logged in
+      this.router.navigate(['/login']);
       return false;
     }
     return true;

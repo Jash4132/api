@@ -11,7 +11,7 @@ import { FormsModule } from '@angular/forms';
   imports:[CommonModule,FormsModule,RouterLink]
 })
 export class RegisterComponent {
-  user = { name: '', email: '', password: '' };
+  user = { name: '', email: '', password: '', role:'' };
   message = '';
   errorMessage = '';
   emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
@@ -38,11 +38,20 @@ export class RegisterComponent {
       return;
     }
 
-    this.http.post(this.apiUrl, this.user).subscribe(() => {
-      this.message = 'Registration successful! Redirecting to login...';
-      setTimeout(() => this.router.navigate(['/login']), 2000);
-    }, () => {
-      this.errorMessage = 'Registration failed! Please try again.';
+    this.http.get<any[]>(`${this.apiUrl}?email=${this.user.email}`).subscribe(existingUsers => {
+      if (existingUsers.length > 0) {
+        this.errorMessage = 'Email already registered!';
+        setTimeout(() => this.errorMessage = '', 3000);
+        return;
+      }
+
+      this.http.post(this.apiUrl, this.user).subscribe(() => {
+        this.message = 'Registration successful! Redirecting to login...';
+        setTimeout(() => this.router.navigate(['/login']), 2000);
+      }, () => {
+        this.errorMessage = 'Registration failed! Please try again.';
+        setTimeout(() => this.errorMessage = '', 3000);
+      });
     });
   }
 }

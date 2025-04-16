@@ -27,7 +27,8 @@ export class DashboardComponent implements OnInit {
   logout() {
     if (this.session) {
       this.authService.logoutUser(this.session.id).subscribe(() => {
-        this.router.navigate(['/login']); // Redirect after logout
+        sessionStorage.clear()
+        this.router.navigate(['/login']);
       });
     }
   }

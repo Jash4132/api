@@ -1,9 +1,34 @@
-/* Center the form */
+body {
+  font-family: 'Poppins', sans-serif;
+  background: url('https://thumbs.dreamstime.com/z/doctor-blue-scrubs-uses-tablet-to-analyze-digital-health-data-holographic-overlays-display-human-body-internal-343741572.jpg') no-repeat center center fixed;
+  background-size: cover;
+  min-height: 100vh;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Optional: semi-transparent overlay to improve contrast */
+body::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.2); /* Light tint */
+  z-index: 0;
+}
+
+/* Centered form container */
 form {
+  position: relative;
+  z-index: 1;
   max-width: 400px;
   margin: 50px auto;
-  padding: 25px;
-  background: #f8f9fa;
+  padding: 70px;
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(1px);
   border-radius: 12px;
   box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
   font-family: 'Arial', sans-serif;
@@ -37,7 +62,7 @@ input {
   transition: border 0.3s ease;
 }
 
-/* Focus state for input fields */
+/* Focus state */
 input:focus {
   border-color: #007bff;
   outline: none;
@@ -56,13 +81,11 @@ button {
   transition: 0.3s ease;
 }
 
-/* Button hover state */
 button:hover {
   background: #0056b3;
   transform: translateY(-2px);
 }
 
-/* Button active state */
 button:active {
   transform: translateY(0);
   background: #004494;
@@ -85,7 +108,7 @@ p.error {
   font-weight: bold;
 }
 
-/* Error message small text */
+/* Error text */
 small {
   color: #dc3545;
   font-size: 12px;
@@ -103,7 +126,7 @@ a:hover {
   text-decoration: underline;
 }
 
-/* Responsive for smaller screens */
+/* Responsive adjustments */
 @media (max-width: 480px) {
   form {
     padding: 15px;
@@ -117,6 +140,8 @@ a:hover {
     font-size: 14px;
   }
 }
+
+/* Select box styles */
 div {
   margin-bottom: 20px;
   text-align: left;

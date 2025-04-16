@@ -1,86 +1,82 @@
+/* Reset + base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Poppins', sans-serif;
+  background: #ffffff; /* Light background for visibility */
+  color: #000;
+}
+
 /* Navbar container */
 .navbar {
-  background-color: #007bff;
-  padding: 10px 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap; /* Helps with responsiveness */
+  background-color: #007bff; /* Bright blue */
+  padding: 16px 32px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-/* Navigation links container */
+/* Nav links */
 .nav-links {
   list-style: none;
-  padding: 0;
-  margin: 0;
   display: flex;
-  gap: 20px; /* Adds space between list items */
-  flex-wrap: wrap; /* Allows items to wrap if screen is small */
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 20px;
 }
 
-/* Navbar items (li) */
-.nav-links li {
-  text-align: center;
-}
-
-.nav-links a {
-  color: white;
+/* Nav items */
+.nav-links li a {
+  color: #fff; /* White text */
   text-decoration: none;
-  font-size: 16px;
-  font-weight: bold;
+  font-weight: 500;
   padding: 8px 12px;
-  display: inline-block;
+  transition: 0.3s;
+}
+.nav-links li a:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
 }
 
-.nav-links a:hover {
-  text-decoration: underline;
-}
-
-/* Button styles for logout */
+/* Logout button */
 .logout-btn {
-  background: white;
+  background-color: #fff;
   color: #007bff;
   border: none;
-  padding: 8px 15px;
-  font-size: 16px;
+  padding: 8px 16px;
   font-weight: bold;
   border-radius: 6px;
   cursor: pointer;
-  transition: 0.3s ease;
+  transition: 0.3s;
 }
-
 .logout-btn:hover {
-  background: #f8f9fa;
-  color: #0056b3;
+  background-color: #e0e0e0;
 }
 
-/* Align logout button to the right */
+/* Push logout to right */
 .nav-right {
   margin-left: auto;
 }
 
-/* Styling for doctor-specific login links */
-.navbar a {
-  text-decoration: none;
-  color: white;
-  font-weight: bold;
-}
-
-/* Hover effect for links */
-.navbar a:hover {
-  text-decoration: underline;
-}
-
-/* Flexbox alignment for smaller screens */
-@media screen and (max-width: 768px) {
+/* Responsive for mobile */
+@media (max-width: 768px) {
   .nav-links {
     flex-direction: column;
-    align-items: center;
-    width: 100%;
+    align-items: flex-start;
+    gap: 12px;
   }
 
   .nav-right {
     margin-left: 0;
     margin-top: 10px;
+  }
+
+  .logout-btn {
+    width: 100%;
+    text-align: left;
   }
 }

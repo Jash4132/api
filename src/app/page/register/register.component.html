@@ -1,5 +1,7 @@
+<body>
+  <form (ngSubmit)="registerUser()" #registerForm="ngForm">
 <h2>Register</h2>
-<form (ngSubmit)="registerUser()" #registerForm="ngForm">
+<br>
   <div>
     <label>Name:</label>
     <input type="text" name="name" [(ngModel)]="user.name" #name="ngModel" required />
@@ -18,20 +20,21 @@
     <small *ngIf="password.invalid && password.touched" style="color: red;">Password must be at least 6 characters.</small>
   </div>
 
-  <!-- <div>
+  <div>
     <label>Select Role:</label>
     <select name="role" [(ngModel)]="user.role" required>
       <option value="" disabled selected>Select a Role</option>
       <option value="doctor">Doctor</option>
       <option value="patient">Patient</option>
     </select>
-  </div> -->
+  </div>
 
   <button type="submit">Register</button>
+
+  <!-- Error & Success Messages -->
+  <p *ngIf="errorMessage" style="color: red;">{{ errorMessage }}</p>
+  <p *ngIf="message" style="color: green;">{{ message }}</p>
+  <br><br>
+  <p>Already registered? <a routerLink="/login">Login here</a></p>
 </form>
-
-<!-- Error & Success Messages -->
-<p *ngIf="errorMessage" style="color: red;">{{ errorMessage }}</p>
-<p *ngIf="message" style="color: green;">{{ message }}</p>
-
-<p>Already registered? <a routerLink="/login">Login here</a></p>
+</body>

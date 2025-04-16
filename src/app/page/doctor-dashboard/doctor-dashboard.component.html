@@ -1,3 +1,8 @@
+<div class="dashboard-bg">
+  <nav>
+  <div class="nav-right">
+    <button class="logout-btn" (click)="logout()">Logout User</button>
+  </div></nav>
 <div class="dashboard-container">
   <h2>Doctor Dashboard</h2>
   <table>
@@ -20,8 +25,12 @@
         <span *ngIf="appointment.consultationDate">{{ appointment.consultationDate }}</span>
         <span *ngIf="!appointment.consultationDate">Not Accepted</span>
       </td>
+
       <td>
         <button *ngIf="!appointment.consultationDate" (click)="openAcceptDialog(appointment)">Accept</button>
+        <button *ngIf="appointment.consultationDate && !appointment.showRescheduleForm" (click)="toggleRescheduleForm(appointment)">
+          Reschedule
+        </button>
       </td>
     </tr>
   </table>
@@ -32,6 +41,20 @@
       <input type="date" [(ngModel)]="consultationDate" />
       <button (click)="acceptAppointment()">Confirm</button>
       <button (click)="closeDialog()">Cancel</button>
+    </div>
+    </div>
+  </div>
+</div>
+<div *ngFor="let app of appointments">
+  <div class="reschedule-overlay" *ngIf="app.showRescheduleForm">
+    <div class="reschedule-modal">
+    <h3>Reschedule Appointment for {{ app.name }}</h3>
+    <label>New Consultation Date:</label>
+    <input type="date" [(ngModel)]="app.newConsultationDate" />
+    <div class="btn-group">
+      <button (click)="rescheduleAppointment(app)">Save</button>
+      <button (click)="cancelReschedule(app)">Cancel</button>
+    </div>
     </div>
   </div>
 </div>

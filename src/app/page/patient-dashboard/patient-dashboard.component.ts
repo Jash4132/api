@@ -7,25 +7,28 @@ import { CommonModule } from '@angular/common';
   selector: 'app-patient-dashboard',
   templateUrl: './patient-dashboard.component.html',
   styleUrls: ['./patient-dashboard.component.css'],
-  imports:[FormsModule,CommonModule]
+  imports: [FormsModule, CommonModule],
 })
 export class PatientDashboardComponent {
   name: string = '';
   phone: string = '';
   appointments: any = null;
+  editingAppointment: any = null;
 
   apiUrl: string = 'http://localhost:3000/appointments';
 
   constructor(private http: HttpClient) {}
 
   fetchAppointments() {
-    this.http.get<any[]>('http://localhost:3000/appointments')
-      .subscribe(data => {
-        this.appointments = data.filter(appointment =>
-          appointment.name === this.name && appointment.phone === this.phone
+    this.http
+      .get<any[]>('http://localhost:3000/appointments')
+      .subscribe((data) => {
+        this.appointments = data.filter(
+          (appointment) =>
+            appointment.name === this.name && appointment.phone === this.phone
         );
         if (this.appointments.length === 0) {
-          alert("No appointments found for the provided details.");
+          alert('No appointments found for the provided details.');
           this.appointments = null;
         }
       });
@@ -39,5 +42,23 @@ export class PatientDashboardComponent {
       this.appointments = this.appointments.filter((app: any) => app.id !== id);
       alert('Appointment cancelled successfully.');
     });
+  }
+
+  startEditing(appointment: any) {
+    this.editingAppointment = { ...appointment };
+  }
+
+  saveEdit() {
+    if (this.editingAppointment) {
+      this.http.put(`${this.apiUrl}/${this.editingAppointment.id}`,this.editingAppointment).subscribe(() => {
+          alert('Appointment updated successfully!');
+          this.fetchAppointments();
+          this.editingAppointment = null;
+        });
+    }
+  }
+
+  cancelEdit() {
+    this.editingAppointment = null;
   }
 }

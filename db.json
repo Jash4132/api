@@ -1,55 +1,37 @@
 {
   "users": [
     {
-      "id": "d193",
+      "id": "5801",
       "name": "Jash",
       "email": "jash@gmail.com",
-      "password": "jash123"
+      "password": "jash123",
+      "role": "patient"
+    },
+    {
+      "id": "b5d6",
+      "name": "Darshan",
+      "email": "darshan26@gmail.com",
+      "password": "darshan123",
+      "role": "doctor"
     }
   ],
   "appointments": [
     {
-      "id": "2c06",
-      "name": "Jash",
-      "email": "jash",
+      "id": "3078",
+      "name": "Denial",
+      "email": "denial52@gmail.com",
       "phone": "9106477650",
-      "date": "3212-04-23",
-      "problem": "Stomach Pain",
-      "otherProblem": "",
-      "consultationDate": "2025-03-27"
-    },
-    {
-      "id": "d2b8",
-      "name": "jen",
-      "email": "jen",
-      "phone": "9106477650",
-      "date": "45676-03-12",
-      "problem": "Cough",
-      "otherProblem": ""
-    },
-    {
-      "id": "c05d",
-      "name": "den",
-      "email": "den",
-      "phone": "9106477650",
-      "date": "5434-04-23",
-      "problem": "Diabetes",
+      "date": "2025-04-16",
+      "problem": "Heart Issue",
       "otherProblem": ""
     }
   ],
   "sessions": [
     {
-      "id": "2002",
-      "userId": "d193",
-      "email": "jash@gmail.com"
+      "id": "7db3",
+      "email": "jash@gmail.com",
+      "role": "patient"
     }
   ],
-  "messages": [
-    {
-      "id": "0018",
-      "name": "Jash",
-      "email": "jash@gmail.com",
-      "message": "This Website is very good and It helps me a lot."
-    }
-  ]
+  "messages": []
 }

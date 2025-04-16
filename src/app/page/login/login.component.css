@@ -1,10 +1,37 @@
+body {
+  font-family: 'Poppins', sans-serif;
+  background: url('https://thumbs.dreamstime.com/z/doctor-blue-scrubs-uses-tablet-to-analyze-digital-health-data-holographic-overlays-display-human-body-internal-343741572.jpg') no-repeat center center fixed;
+  background-size: cover;
+  min-height: 100vh;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Optional: semi-transparent overlay to improve contrast */
+body::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.2); /* Light tint */
+  z-index: 0;
+}
+
+/* Centered form container */
 form {
+  position: relative;
+  z-index: 1;
   max-width: 400px;
   margin: 50px auto;
-  padding: 20px;
-  background: #ffffff;
-  border-radius: 10px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  padding: 70px;
+  background: rgba(255, 255, 255, 0.6); /* Light background to enable blur */
+  backdrop-filter: blur(1px);
+  border-radius: 12px;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+  font-family: 'Arial', sans-serif;
 }
 
 h2 {
@@ -20,7 +47,7 @@ label {
 }
 
 input {
-  width: 100%;
+  width: 95%;
   padding: 10px;
   margin-bottom: 15px;
   border: 1px solid #ccc;
@@ -41,7 +68,7 @@ button {
 }
 
 button:hover {
-  background: #7a87e9;
+  background: #3a4cd3;
 }
 
 p {

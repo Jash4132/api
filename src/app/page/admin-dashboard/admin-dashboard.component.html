@@ -1,0 +1,45 @@
+<div class="dashboard-container">
+  <h1>Admin Dashboard</h1>
+
+  <section>
+    <h2>Users</h2>
+    <table>
+      <tr><th>Name</th><th>Email</th><th>Role</th><th>Manage User</th></tr>
+      <tr *ngFor="let user of users">
+        <td>{{ user.name }}</td>
+        <td>{{ user.email }}</td>
+        <td>{{ user.role }}</td>
+        <td>
+          <button (click)="deleteUser(user.id)" style="background-color: #c0392b; color: white; padding: 6px 12px; border: none; border-radius: 6px; cursor: pointer;">Delete</button></td>
+      </tr>
+    </table>
+  </section>
+
+  <section>
+    <h2>Appointments</h2>
+    <table>
+      <tr><th>Patient</th><th>Phone</th><th>Appointment</th><th>Manage Appointment</th></tr>
+      <tr *ngFor="let appointment of appointments">
+        <td>{{ appointment.name }}</td>
+        <td>{{ appointment.phone }}</td>
+        <td>{{ appointment.consultationDate }}</td>
+        <td>
+          <button (click)="deleteAppointment(appointment.id)" style="background-color: #e74c3c; color: white; padding: 6px 12px; border: none; border-radius: 6px; cursor: pointer;">Delete</button>
+        </td>
+      </tr>
+    </table>
+  </section>
+
+  <section>
+    <h2>Messages</h2>
+    <table>
+      <tr><th>From</th><th>To</th><th>Message</th><th>Time</th></tr>
+      <tr *ngFor="let message of messages">
+        <td>{{ message.from }}</td>
+        <td>{{ message.to }}</td>
+        <td>{{ message.text }}</td>
+        <td>{{ message.timestamp }}</td>
+      </tr>
+    </table>
+  </section>
+</div>

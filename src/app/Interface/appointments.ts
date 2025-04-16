@@ -7,3 +7,9 @@ export interface appointment{
       problem: string,
       otherProblem: string
 }
+export interface User {
+  id: number;
+  email: string;
+  password: string;
+  role?: string;
+}

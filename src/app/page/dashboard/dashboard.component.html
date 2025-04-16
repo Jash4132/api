@@ -2,11 +2,11 @@
 <!-- <h2>Welcome to Dashboard</h2>
 <p>You are now logged in as {{ session?.email }}</p> -->
 <div class="dashboard-container">
-  <h1>Welcome {{ session?.email }} to Dr Pro</h1>
+  <h1>Welcome to Dr Pro</h1>
 
   <!-- Hero Section -->
   <div class="hero-section">
-    <h2>Your Health, Our Priority</h2>
+    <h2>Your Health is our Priority</h2>
     <p>Book appointments with expert doctors and get the best medical consultation at your convenience.</p>
     <a routerLink="/book-appointment" class="btn-primary">Book an Appointment</a>
   </div>
@@ -45,7 +45,40 @@
   <!-- Call to Action -->
   <div class="cta-section">
     <h2>Need a Doctor? We Are Here to Help!</h2>
-    <p>Book an appointment now and get quality healthcare at your convenience.</p>
-    <a routerLink="/book-appointment" class="btn-primary">Book Now</a>
+    <p><a href="book-appointment">Book an appointment</a> now and get quality healthcare at your convenience.</p>
   </div>
 </div>
+<footer class="footer">
+  <div class="footer-top">
+    <div class="footer-column brand">
+      <div class="logo-text">
+        <img src="dr-pro.ico" alt="DrPro Logo" class="logo-img">
+        <p>Dr.Pro : Find Best Ways To Streamline Your Doctor-Patient Relationship. A simple, fast and intuitive software for doctors and patients for appointments.</p>
+      </div>
+    </div>
+    <div class="footer-column">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="contact-us">Contact Us</a></li>
+        <li><a href="blog">Blog</a></li>
+        <li><a href="about-us">About-us</a></li>
+      </ul>
+    </div>
+    <div class="footer-column">
+      <h4>Solutions We Serve</h4>
+      <ul>
+        <li><a href="book-appointment">Book an Appointment</a></li>
+        <li><a href="patient-dashboard">Patient Dashboard</a></li>
+        <li><p>You can book your appointment and while doctor accept it it will show the date of appointment.</p></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div>
+      <a>Terms & Conditions</a> |
+      <a>Privacy Policy</a>
+    </div>
+    <div class="footer-brand">Dr.pro</div>
+  </div>
+</footer>

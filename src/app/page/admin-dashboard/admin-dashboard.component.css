@@ -1,0 +1,124 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap');
+
+body {
+  background: #121212;
+  color: #ffffff;
+  font-family: 'Outfit', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Dashboard Container */
+.dashboard-container {
+  max-width: 1200px;
+  margin: 50px auto;
+  padding: 0 30px;
+}
+
+/* Main Heading */
+.dashboard-container h1 {
+  font-size: 42px;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 40px;
+  background: linear-gradient(90deg, #00ffc3, #4d5dfb);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Glassmorphic Section Style */
+.dashboard-container section {
+  margin-bottom: 40px;
+  padding: 30px;
+  border-radius: 20px;
+  background: rgba(0, 0, 0, 0.6); /* Now fully visible */
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 24px rgba(0, 255, 195, 0.15);
+  border: 1px solid rgba(0, 255, 195, 0.1);
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.dashboard-container section h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  padding-bottom: 8px;
+  color: #ffffff;
+}
+
+/* Tables */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 16px;
+}
+
+th, td {
+  padding: 14px 16px;
+  text-align: left;
+}
+
+th {
+  background-color: rgba(0, 255, 195, 0.1);
+  color: #00ffc3;
+  font-weight: 600;
+}
+
+td {
+  color: #f1f1f1;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+/* Hover & Row Styles */
+tr:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+tr:nth-child(even) td {
+  background-color: rgba(255, 255, 255, 0.025);
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  table, thead, tbody, th, td, tr {
+    display: block;
+  }
+
+  thead {
+    display: none;
+  }
+
+  tr {
+    background-color: rgba(0, 0, 0, 0.4);
+    border-radius: 10px;
+    margin-bottom: 16px;
+    padding: 12px;
+  }
+
+  td {
+    position: relative;
+    padding-left: 50%;
+    text-align: left;
+  }
+
+  td::before {
+    position: absolute;
+    left: 16px;
+    top: 12px;
+    content: attr(data-label);
+    color: #00ffc3;
+    font-weight: 600;
+  }
+}
+
+/* Animation */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

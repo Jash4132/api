@@ -17,7 +17,7 @@ export class NavbarComponent {
       if (sessions.length > 0) {
         const sessionId = sessions[0].id;
         this.authService.logoutUser(sessionId).subscribe(() => {
-          this.router.navigate(['/login']); // Redirect after logout
+          this.router.navigate(['/login']); 
         });
       }
     });

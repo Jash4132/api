@@ -5,7 +5,7 @@ div {
 }
 
 /* Style input fields */
-input {
+input,select {
   width: 100%;
   max-width: 350px; /* Adjusted width */
   padding: 12px;
@@ -167,4 +167,114 @@ button.cancel-appointment:focus {
   input, button {
     font-size: 14px;
   }
+}
+/* Edit Appointment Section */
+.edit-appointment-container {
+  background: #f9f9f9;
+  border-radius: 12px;
+  padding: 20px;
+  width: 50%;
+  margin: 20px auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+/* Input Fields */
+.edit-appointment-container input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 2px solid #4CAF50;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: all 0.3s ease-in-out;
+}
+
+.edit-appointment-container input:focus {
+  border-color: #388E3C;
+  box-shadow: 0px 0px 10px rgba(76, 175, 80, 0.4);
+  outline: none;
+}
+
+/* Save & Cancel Buttons */
+.action-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.save-btn, .cancel-btn {
+  padding: 10px 18px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  transition: all 0.3s ease-in-out;
+}
+
+.save-btn {
+  background: linear-gradient(45deg, #4CAF50, #388E3C);
+  color: white;
+}
+
+.cancel-btn {
+  background: linear-gradient(45deg, #FF5252, #D32F2F);
+  color: white;
+}
+
+.save-btn:hover {
+  background: linear-gradient(45deg, #388E3C, #2E7D32);
+  transform: scale(1.05);
+}
+
+.cancel-btn:hover {
+  background: linear-gradient(45deg, #D32F2F, #B71C1C);
+  transform: scale(1.05);
+}
+
+/* Improve Table Styling */
+table {
+  width: 80%;
+  margin: 20px auto;
+  border-collapse: collapse;
+  text-align: center;
+}
+
+th, td {
+  padding: 12px;
+  border-bottom: 2px solid #ddd;
+}
+
+th {
+  background: #4CAF50;
+  color: white;
+  font-size: 18px;
+}
+
+td {
+  background: #fff;
+  font-size: 16px;
+}
+
+tr:hover {
+  background: #f1f1f1;
+}
+
+/* Edit Button */
+.edit-btn {
+  background: linear-gradient(45deg, #6e7b6f, #11862e);
+  color: white;
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: none;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.edit-btn:hover {
+  background: linear-gradient(45deg, #1de15b, #c3813e);
+  transform: scale(1.05);
 }

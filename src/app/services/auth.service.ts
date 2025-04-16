@@ -23,6 +23,7 @@ export class AuthService {
     return this.http.post(this.sessionsUrl, {
       userId: user.id,
       email: user.email,
+      role: user.role
     });
   }
 
@@ -31,6 +32,7 @@ export class AuthService {
   }
 
   logoutUser(sessionId: number): Observable<any> {
+    sessionStorage.clear();
     return this.http.delete(`${this.sessionsUrl}/${sessionId}`);
   }
 }

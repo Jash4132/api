@@ -21,6 +21,8 @@
       <th>Problem</th>
       <th>Consultation Date</th>
       <th>Status</th>
+      <th>Edit Appointment</th>
+      <th>Cancel Appointment</th>
     </tr>
     <tr *ngFor="let appointment of appointments">
       <td>{{ appointment.date }}</td>
@@ -30,9 +32,53 @@
         <span *ngIf="appointment.consultationDate" style="color: green;">Accepted</span>
         <span *ngIf="!appointment.consultationDate " >Pending</span>
       </td>
+      <td class="button-group">
+        <button class="edit-btn" (click)="startEditing(appointment)">Edit</button>
+      </td>
+      <td>
+      <button (click)="cancelAppointment(appointment.id)">Cancel Appointment</button>
+    </td>
     </tr>
   </table>
-  <li *ngFor="let app of appointments">
-  <button (click)="cancelAppointment(app.id)">Cancel Appointment</button>
-</li>
+</div>
+<!-- Edit Appointment Section -->
+<div *ngIf="editingAppointment" class="edit-appointment-container">
+  <h2>Edit Appointment</h2>
+
+  <label for="edit-name">Name:</label>
+  <input id="edit-name" type="text" [(ngModel)]="editingAppointment.name" />
+
+  <label for="edit-phone">Phone Number:</label>
+  <input id="edit-phone" type="text" [(ngModel)]="editingAppointment.phone" />
+
+  <label for="problem" class="required-field">Medical Concern</label>
+    <select id="problem" [(ngModel)]="editingAppointment.problem" name="problem" required>
+      <option value="" disabled selected>Select your medical concern</option>
+      <option value="Cold">Cold</option>
+      <option value="Flu">Flu</option>
+      <option value="Fever">Fever</option>
+      <option value="Cough">Cough</option>
+      <option value="Headache">Headache</option>
+      <option value="Stomach Pain">Stomach Pain</option>
+      <option value="Skin Infection">Skin Infection</option>
+      <option value="Diabetes">Diabetes</option>
+      <option value="Heart Issue">Heart Issue</option>
+      <option value="Other">Other</option>
+    </select>
+    <div *ngIf="editingAppointment.problem === 'Other'">
+      <label for="otherProblem" class="required-field">Describe Your Concern</label>
+      <input
+        type="text"
+        id="otherProblem"
+        [(ngModel)]="editingAppointment.otherProblem"
+        name="otherProblem"
+        placeholder="Please describe your medical concern"
+        required
+      />
+    </div>
+
+  <div class="action-buttons">
+    <button class="save-btn" (click)="saveEdit()">Save</button>
+    <button class="cancel-btn" (click)="cancelEdit()">Cancel</button>
+  </div>
 </div>
